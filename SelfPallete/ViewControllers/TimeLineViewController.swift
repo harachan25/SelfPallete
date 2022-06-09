@@ -20,7 +20,8 @@ class TimeLineViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     let realm = try! Realm()
-    var posts = [Post]()
+    public var posts = [Post]()
+    public var addv = AddViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,16 +45,15 @@ class TimeLineViewController: UIViewController {
         palleteLabel.layer.cornerRadius = 200
         yubiLabel.backgroundColor = .white
         yubiLabel.layer.cornerRadius = 25
-        
-        enoguLabel1.backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
+        enoguLabel1.backgroundColor = .red
         enoguLabel1.layer.cornerRadius = 20
-        enoguLabel2.backgroundColor = UIColor(red: 1, green: 1, blue: 0, alpha: 1)
+        enoguLabel2.backgroundColor = .yellow
         enoguLabel2.layer.cornerRadius = 30
-        enoguLabel3.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
+        enoguLabel3.backgroundColor = .green
         enoguLabel3.layer.cornerRadius = 40
-        enoguLabel4.backgroundColor = UIColor(red: 0, green: 1, blue: 1, alpha: 1)
+        enoguLabel4.backgroundColor = .blue
         enoguLabel4.layer.cornerRadius = 50
-        enoguLabel5.backgroundColor = UIColor(red: 0, green: 0, blue: 1, alpha: 1)
+        enoguLabel5.backgroundColor = .purple
         enoguLabel5.layer.cornerRadius = 60
     }
 
@@ -74,8 +74,8 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
     // Cellの中身を設定するデリゲートメソッド
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
-        guard let postLabel = cell.viewWithTag(3) as? UILabel,
-              let postImageView = cell.viewWithTag(4) as? UIImageView else { return cell }
+        guard let postImageView = cell.viewWithTag(1) as? UIImageView,
+            let postLabel = cell.viewWithTag(3) as? UILabel else { return cell }
         
         let post = posts[indexPath.row]
         postLabel.text = post.postText

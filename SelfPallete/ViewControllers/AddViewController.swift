@@ -30,15 +30,15 @@ class AddViewController: UIViewController {
     //Viewの初期設定を行うメソッド
     func setUpViews(){
         imageButton.backgroundColor = .gray //その後指定した成長の色と対応させる
-        colorButton1.backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
+        colorButton1.backgroundColor = MyColor.pastelRed
         colorButton1.layer.cornerRadius = 27
-        colorButton2.backgroundColor = UIColor(red: 1, green: 1, blue: 0, alpha: 1)
+        colorButton2.backgroundColor = MyColor.pastelYellow
         colorButton2.layer.cornerRadius = 27
-        colorButton3.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
+        colorButton3.backgroundColor = MyColor.pastelGreen
         colorButton3.layer.cornerRadius = 27
-        colorButton4.backgroundColor = UIColor(red: 0, green: 1, blue: 1, alpha: 1)
+        colorButton4.backgroundColor = MyColor.pastelBlue
         colorButton4.layer.cornerRadius = 27
-        colorButton5.backgroundColor = UIColor(red: 0, green: 0, blue: 1, alpha: 1)
+        colorButton5.backgroundColor = MyColor.pastelPurple
         colorButton5.layer.cornerRadius = 27
         backgroundColorLabel.backgroundColor = .gray
     }
@@ -59,24 +59,19 @@ class AddViewController: UIViewController {
     
     //色ボタンを押したときのアクション
     @IBAction func didTapColorButton1(){
-        backgroundColorLabel.backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.5)
-        
+        backgroundColorLabel.backgroundColor = colorButton1.backgroundColor
     }
     @IBAction func didTapColorButton2(){
-        backgroundColorLabel.backgroundColor = UIColor(red: 1, green: 1, blue: 0, alpha: 0.5)
-        
+        backgroundColorLabel.backgroundColor = colorButton2.backgroundColor
     }
     @IBAction func didTapColorButton3(){
-        backgroundColorLabel.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 0.5)
-        
+        backgroundColorLabel.backgroundColor = colorButton3.backgroundColor
     }
     @IBAction func didTapColorButton4(){
-        backgroundColorLabel.backgroundColor = UIColor(red: 0, green: 1, blue: 1, alpha: 0.5)
-        
+        backgroundColorLabel.backgroundColor = colorButton4.backgroundColor
     }
     @IBAction func didTapColorButton5(){
-        backgroundColorLabel.backgroundColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0.5)
-        
+        backgroundColorLabel.backgroundColor = colorButton5.backgroundColor
     }
     
     
@@ -146,4 +141,46 @@ extension AddViewController: UINavigationControllerDelegate, UIImagePickerContro
 }
 
 
+class MyColor: UIColor {
+    class public var pastelRed: UIColor {
+            return UIColor(hex: "#ff7f7f")
+    }
+    class public var pastelYellow: UIColor {
+            return UIColor(hex: "#ffff7f")
+    }
+    class public var pastelGreen: UIColor {
+            return UIColor(hex: "#7fffbf")
+    }
+    class public var pastelBlue: UIColor {
+            return UIColor(hex: "#7f7fff")
+    }
+    class public var pastelPurple: UIColor {
+            return UIColor(hex: "#bf7fff")
+    }
+}
 
+
+
+
+extension UIColor {
+    convenience init(hex: String) {
+        // スペースや改行がはいっていたらトリムする
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+
+        // 頭に#がついていたら取り除く
+        if cString.hasPrefix("#") {
+            cString.remove(at: cString.startIndex)
+        }
+
+        // RGBに変換する
+        var rgbValue:UInt64 = 0
+        Scanner(string: cString).scanHexInt64(&rgbValue)
+
+        self.init(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+}
