@@ -9,6 +9,7 @@ import UIKit
 import RealmSwift
 
 class TimeLineViewController: UIViewController {
+    @IBOutlet var goalLabel: UILabel!
     @IBOutlet var palleteLabel: UILabel!
     @IBOutlet var yubiLabel: UILabel!
     @IBOutlet var enoguLabel1: UILabel!
@@ -42,7 +43,7 @@ class TimeLineViewController: UIViewController {
         tableView.dataSource = self
         
         palleteLabel.backgroundColor = .systemGray5
-        palleteLabel.layer.cornerRadius = 200
+        self.palleteLabel.layer.cornerRadius = 200
         yubiLabel.backgroundColor = .white
         yubiLabel.layer.cornerRadius = 25
         enoguLabel1.backgroundColor = .red
@@ -75,10 +76,13 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
         guard let postImageView = cell.viewWithTag(1) as? UIImageView,
-              let postLabel = cell.viewWithTag(3) as? UILabel else { return cell }
+              let postLabel = cell.viewWithTag(3) as? UILabel,
+              let postTimeLabel = cell.viewWithTag(4) as? UILabel
+        else { return cell }
         
         let post = posts[indexPath.row]
         postLabel.text = post.postText
+        postTimeLabel.text = post.postTime
         
         
         if let imageFileName = post.imageFileName {
@@ -86,7 +90,6 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
             if FileManager.default.fileExists(atPath: path) { // pathにファイルが存在しているかチェック
                 if let imageData = UIImage(contentsOfFile: path) { // pathに保存されている画像を取得
                     postImageView.image = imageData
-                    postImageView.layer.borderColor = addv.saveImage.flameColor
                     postImageView.layer.borderWidth = 10
                 } else {
                     print("Failed to load the image. path = ", path)

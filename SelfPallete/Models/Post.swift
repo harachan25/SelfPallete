@@ -12,6 +12,7 @@ import RealmSwift
 class Post: Object {
     @objc dynamic var postText: String = ""
     @objc dynamic var imageFileName: String?
+    @objc dynamic var postTime: String = ""
     //時間
 }
 

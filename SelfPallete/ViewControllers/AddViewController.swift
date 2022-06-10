@@ -10,6 +10,7 @@ import UIKit
 import RealmSwift
 
 class AddViewController: UIViewController {
+    @IBOutlet var goadTextField: UITextField!
     @IBOutlet var colorButton1: UIButton!
     @IBOutlet var colorButton2: UIButton!
     @IBOutlet var colorButton3: UIButton!
@@ -19,7 +20,10 @@ class AddViewController: UIViewController {
     @IBOutlet var imageButton: UIButton!
     @IBOutlet var postTextField: UITextField!
     
+    var testText:String = "default"
+    
     let realm = try! Realm()
+    let userDefaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +60,10 @@ class AddViewController: UIViewController {
     }
     
     
+//    //キーボードを閉じる
+//    @IBAction func inputText(_ sender: UITextField) {
+//        goadTextField.text = sender.text
+//    }
     
     
     //投稿を保存するメソッド
@@ -64,6 +72,11 @@ class AddViewController: UIViewController {
 
         let post = Post() //クラスPOSTのインスタンス生成
         post.postText = postText //投稿のテキストをセット
+        
+        let dt = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yMdHm", options: 0, locale: Locale(identifier: "ja_JP"))
+        post.postTime = dateFormatter.string(from: dt)
         
         //画像がボタンにセットされてたら画像も保存
         if let postImage = imageButton.backgroundImage(for: .normal){
@@ -74,6 +87,8 @@ class AddViewController: UIViewController {
         try! realm.write({
             realm.add(post) //レコードを追加
         })
+        
+        
         
     }
     
@@ -87,7 +102,6 @@ class AddViewController: UIViewController {
             let fileName = UUID().uuidString + ".jpeg" // ファイル名を決定(UUIDは、ユニークなID)
             let imageURL = getImageURL(fileName: fileName) // 保存先のURLをゲット
             try imageData.write(to: imageURL) // imageURLに画像を書き込む
-            let flameColor = imageButton.layer.borderColor
             return fileName
         } catch {
             print("Failed to save the image:", error)
