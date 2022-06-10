@@ -15,7 +15,6 @@ class AddViewController: UIViewController {
     @IBOutlet var colorButton3: UIButton!
     @IBOutlet var colorButton4: UIButton!
     @IBOutlet var colorButton5: UIButton!
-    @IBOutlet var backgroundColorLabel: UILabel!
     
     @IBOutlet var imageButton: UIButton!
     @IBOutlet var postTextField: UITextField!
@@ -29,7 +28,6 @@ class AddViewController: UIViewController {
     
     //Viewの初期設定を行うメソッド
     func setUpViews(){
-        imageButton.backgroundColor = .gray //その後指定した成長の色と対応させる
         colorButton1.backgroundColor = MyColor.pastelRed
         colorButton1.layer.cornerRadius = 27
         colorButton2.backgroundColor = MyColor.pastelYellow
@@ -40,7 +38,8 @@ class AddViewController: UIViewController {
         colorButton4.layer.cornerRadius = 27
         colorButton5.backgroundColor = MyColor.pastelPurple
         colorButton5.layer.cornerRadius = 27
-        backgroundColorLabel.backgroundColor = .gray
+        imageButton.layer.borderColor = UIColor.gray.cgColor
+        imageButton.layer.borderWidth = 10
     }
     
     //キャンセルボタンを押したときのアクション
@@ -57,31 +56,13 @@ class AddViewController: UIViewController {
     }
     
     
-    //色ボタンを押したときのアクション
-    @IBAction func didTapColorButton1(){
-        backgroundColorLabel.backgroundColor = colorButton1.backgroundColor
-    }
-    @IBAction func didTapColorButton2(){
-        backgroundColorLabel.backgroundColor = colorButton2.backgroundColor
-    }
-    @IBAction func didTapColorButton3(){
-        backgroundColorLabel.backgroundColor = colorButton3.backgroundColor
-    }
-    @IBAction func didTapColorButton4(){
-        backgroundColorLabel.backgroundColor = colorButton4.backgroundColor
-    }
-    @IBAction func didTapColorButton5(){
-        backgroundColorLabel.backgroundColor = colorButton5.backgroundColor
-    }
-    
-    
     
     
     //投稿を保存するメソッド
     func savePost() {
         guard let postText = postTextField.text else { return }
 
-        let post = Post()
+        let post = Post() //クラスPOSTのインスタンス生成
         post.postText = postText //投稿のテキストをセット
         
         //画像がボタンにセットされてたら画像も保存
@@ -103,15 +84,16 @@ class AddViewController: UIViewController {
         guard let imageData = image.jpegData(compressionQuality: 1.0) else { return nil }
 
         do {
-            _ = imageButton.backgroundColor
             let fileName = UUID().uuidString + ".jpeg" // ファイル名を決定(UUIDは、ユニークなID)
             let imageURL = getImageURL(fileName: fileName) // 保存先のURLをゲット
             try imageData.write(to: imageURL) // imageURLに画像を書き込む
+            let flameColor = imageButton.layer.borderColor
             return fileName
         } catch {
             print("Failed to save the image:", error)
             return nil
         }
+
     }
         // URLを取得するメソッド
             func getImageURL(fileName: String) -> URL {
@@ -126,6 +108,23 @@ class AddViewController: UIViewController {
             imagePickerController.delegate = self
             present(imagePickerController, animated: true)
         }
+       //色ボタンを押したときのアクション
+        @IBAction func didTapColorButton1(){
+            imageButton.layer.borderColor = colorButton1.backgroundColor?.cgColor
+        }
+        @IBAction func didTapColorButton2(){
+            imageButton.layer.borderColor = colorButton2.backgroundColor?.cgColor
+        }
+        @IBAction func didTapColorButton3(){
+            imageButton.layer.borderColor = colorButton3.backgroundColor?.cgColor
+        }
+        @IBAction func didTapColorButton4(){
+            imageButton.layer.borderColor = colorButton4.backgroundColor?.cgColor
+        }
+        @IBAction func didTapColorButton5(){
+            imageButton.layer.borderColor = colorButton5.backgroundColor?.cgColor
+        }
+
     
 }
 
@@ -139,6 +138,7 @@ extension AddViewController: UINavigationControllerDelegate, UIImagePickerContro
         picker.dismiss(animated: true)
     }
 }
+
 
 
 class MyColor: UIColor {

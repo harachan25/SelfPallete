@@ -21,7 +21,7 @@ class TimeLineViewController: UIViewController {
     
     let realm = try! Realm()
     public var posts = [Post]()
-    public var addv = AddViewController()
+    let addv = AddViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,16 +75,19 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
         guard let postImageView = cell.viewWithTag(1) as? UIImageView,
-            let postLabel = cell.viewWithTag(3) as? UILabel else { return cell }
+              let postLabel = cell.viewWithTag(3) as? UILabel else { return cell }
         
         let post = posts[indexPath.row]
         postLabel.text = post.postText
+        
         
         if let imageFileName = post.imageFileName {
             let path = getImageURL(fileName: imageFileName).path // 画像のパスを取得
             if FileManager.default.fileExists(atPath: path) { // pathにファイルが存在しているかチェック
                 if let imageData = UIImage(contentsOfFile: path) { // pathに保存されている画像を取得
                     postImageView.image = imageData
+                    postImageView.layer.borderColor = addv.saveImage.flameColor
+                    postImageView.layer.borderWidth = 10
                 } else {
                     print("Failed to load the image. path = ", path)
                 }
