@@ -42,8 +42,7 @@ class TimeLineViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        palleteLabel.backgroundColor = .systemGray5
-        self.palleteLabel.layer.cornerRadius = 200
+        palleteLabel.layer.cornerRadius = 200
         yubiLabel.backgroundColor = .white
         yubiLabel.layer.cornerRadius = 25
         enoguLabel1.backgroundColor = .red
@@ -90,7 +89,8 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
             if FileManager.default.fileExists(atPath: path) { // pathにファイルが存在しているかチェック
                 if let imageData = UIImage(contentsOfFile: path) { // pathに保存されている画像を取得
                     postImageView.image = imageData
-                    postImageView.layer.borderColor = addv.savePost.flameColor
+//                    let data = Data(base64Encoded: post.flameColor)!
+//                    postImageView.layer.borderColor = data.hexString()
                     postImageView.layer.borderWidth = 10
                 } else {
                     print("Failed to load the image. path = ", path)
@@ -113,3 +113,17 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
            return post.imageFileName == nil ? 90 : 310
        }
 }
+extension Data {
+    func hexEncodedString() -> String {
+        return map { String(format: "%02hhx", $0) }.joined()
+    }
+}
+//public extension Data {
+//    private static let hexAlphabet = Array("0123456789abcdef".unicodeScalars)
+//    func hexStringEncoded() -> String {
+//        String(reduce(into: "".unicodeScalars) { result, value in
+//            result.append(Self.hexAlphabet[Int(value / 0x10)])
+//            result.append(Self.hexAlphabet[Int(value % 0x10)])
+//        })
+//    }
+//}
