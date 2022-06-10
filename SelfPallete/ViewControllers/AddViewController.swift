@@ -81,15 +81,13 @@ class AddViewController: UIViewController {
         //画像がボタンにセットされてたら画像も保存
         if let postImage = imageButton.backgroundImage(for: .normal){
             let imageURLStr = saveImage(image: postImage) //画像を保存
+            let flameColor = imageButton.layer.borderColor //フレームの色保存
             post.imageFileName = imageURLStr
         }
 
         try! realm.write({
             realm.add(post) //レコードを追加
         })
-        
-        
-        
     }
     
     
@@ -101,13 +99,13 @@ class AddViewController: UIViewController {
         do {
             let fileName = UUID().uuidString + ".jpeg" // ファイル名を決定(UUIDは、ユニークなID)
             let imageURL = getImageURL(fileName: fileName) // 保存先のURLをゲット
+            let flameColor = imageButton.layer.borderColor
             try imageData.write(to: imageURL) // imageURLに画像を書き込む
             return fileName
         } catch {
             print("Failed to save the image:", error)
             return nil
         }
-
     }
         // URLを取得するメソッド
             func getImageURL(fileName: String) -> URL {

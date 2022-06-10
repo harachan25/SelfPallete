@@ -90,6 +90,7 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
             if FileManager.default.fileExists(atPath: path) { // pathにファイルが存在しているかチェック
                 if let imageData = UIImage(contentsOfFile: path) { // pathに保存されている画像を取得
                     postImageView.image = imageData
+                    postImageView.layer.borderColor = addv.savePost.flameColor
                     postImageView.layer.borderWidth = 10
                 } else {
                     print("Failed to load the image. path = ", path)
