@@ -25,7 +25,6 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     
     let realm = try! Realm()
     public var posts = [Post]()
-//    let tim = TimeLineViewController()
     let userDefaults = UserDefaults.standard
 
     override func viewDidLoad() {
@@ -64,10 +63,12 @@ class AddViewController: UIViewController, UITextFieldDelegate {
 
         savePost()
         self.dismiss(animated: true)
-//        UserDefaults.standard.set(goalTextField.text, forKey: "str")
-//            let nextView = self.storyboard?.instantiateViewController(withIdentifier: "Next") as! TimeLineViewController
-//            self.navigationController?.pushViewController(nextView, animated: true)
-        }
+    }
+    
+    //
+    @IBAction func goalTextSaveButtonAction(_ sender: Any) {
+        userDefaults.set(goalTextField.text, forKey: "str")
+}
     
     
     //投稿を保存するメソッド
@@ -77,8 +78,6 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         let post = Post() //クラスPOSTのインスタンス生成
         post.postText = postText //投稿のテキストをセット
         
-//        // キーボードを閉じる
-//        postTextField.resignFirstResponder()
         
         let dt = Date()
         let dateFormatter = DateFormatter()

@@ -28,6 +28,7 @@ class TimeLineViewController: UIViewController {
         super.viewDidLoad()
         
         setUpViews()
+        getgoalData()
         getPostData()
         tableView.dataSource = self
         tableView.tableFooterView = UIView(frame: .zero)
@@ -36,6 +37,7 @@ class TimeLineViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        getgoalData()
         getPostData()
     }
     
@@ -59,6 +61,9 @@ class TimeLineViewController: UIViewController {
         enoguLabel5.layer.cornerRadius = 60
     }
     //目標設定
+    func getgoalData(){
+        navigationItem.title = addv.userDefaults.string(forKey: "str")
+    }
 
     //Realmからデータを取得してテーブルビューを再リロードするメソッド
     func getPostData(){
