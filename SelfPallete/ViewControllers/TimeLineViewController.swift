@@ -50,15 +50,15 @@ class TimeLineViewController: UIViewController {
         palleteLabel.layer.cornerRadius = 200
         yubiLabel.backgroundColor = .white
         yubiLabel.layer.cornerRadius = 25
-        enoguLabel1.backgroundColor = .red
+        enoguLabel1.backgroundColor = MyColor.pastelRed
         enoguLabel1.layer.cornerRadius = 20
-        enoguLabel2.backgroundColor = .yellow
+        enoguLabel2.backgroundColor = MyColor.pastelYellow
         enoguLabel2.layer.cornerRadius = 30
-        enoguLabel3.backgroundColor = .green
+        enoguLabel3.backgroundColor = MyColor.pastelGreen
         enoguLabel3.layer.cornerRadius = 40
-        enoguLabel4.backgroundColor = .blue
+        enoguLabel4.backgroundColor = MyColor.pastelBlue
         enoguLabel4.layer.cornerRadius = 50
-        enoguLabel5.backgroundColor = .purple
+        enoguLabel5.backgroundColor = MyColor.pastelPurple
         enoguLabel5.layer.cornerRadius = 60
     }
 //    //目標設定
