@@ -9,8 +9,9 @@ import Foundation
 import UIKit
 import RealmSwift
 
-class AddViewController: UIViewController {
-    @IBOutlet var goadTextField: UITextField!
+class AddViewController: UIViewController, UITextFieldDelegate {
+    @IBOutlet var goalTextField: UITextField!
+    @IBOutlet var goalTextSaveButton: UIButton!
     @IBOutlet var colorButton1: UIButton!
     @IBOutlet var colorButton2: UIButton!
     @IBOutlet var colorButton3: UIButton!
@@ -20,14 +21,22 @@ class AddViewController: UIViewController {
     @IBOutlet var imageButton: UIButton!
     @IBOutlet var postTextField: UITextField!
     
-    var testText:String = "default"
+//    var goalText:String = "目標"
+    var flameColor = ""
     
     let realm = try! Realm()
+    public var posts = [Post]()
+//    let tim = TimeLineViewController()
     let userDefaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
+//        // textFiel の情報を受け取るための delegate を設定
+//        goalTextField.delegate = self
+//        // デフォルト値
+//        userDefaults.register(defaults: ["DataStore": "目標"])
+//        tim.naviText = readData()
     }
     
     //Viewの初期設定を行うメソッド
@@ -46,6 +55,44 @@ class AddViewController: UIViewController {
         imageButton.layer.borderWidth = 10
     }
     
+    
+//    //目標設定
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+//        goalText = goalTextField.text!
+//
+//        // キーボードを閉じる
+//        goalTextField.resignFirstResponder()
+//
+//        saveData(str: goalText)
+//
+//            return true
+//        }
+//
+//
+//    func saveData(str: String){
+//
+//        // Keyを指定して保存
+//        userDefaults.set(str, forKey: "DataStore")
+//    }
+//
+//    func readData() -> String {
+//        // Keyを指定して読み込み
+//        goalText = userDefaults.object(forKey: "DataStore") as! String
+//
+//        return goalText
+//    }
+//
+//    @IBAction func goalTextSaveButton(_ sender: Any) {
+//        // Key の値を削除
+//        userDefaults.removeObject(forKey: "DataStore")
+//
+//        // Keyを指定して読み込み
+//        goalText = userDefaults.object(forKey: "DataStore") as! String
+//    }
+    
+    
+    
+    
     //キャンセルボタンを押したときのアクション
     @IBAction func didTapCancelButton(){
         self.dismiss(animated: true)
@@ -57,13 +104,10 @@ class AddViewController: UIViewController {
 
         savePost()
         self.dismiss(animated: true)
-    }
-    
-    
-//    //キーボードを閉じる
-//    @IBAction func inputText(_ sender: UITextField) {
-//        goadTextField.text = sender.text
-//    }
+//        UserDefaults.standard.set(goalTextField.text, forKey: "str")
+//            let nextView = self.storyboard?.instantiateViewController(withIdentifier: "Next") as! TimeLineViewController
+//            self.navigationController?.pushViewController(nextView, animated: true)
+        }
     
     
     //投稿を保存するメソッド
@@ -72,6 +116,9 @@ class AddViewController: UIViewController {
 
         let post = Post() //クラスPOSTのインスタンス生成
         post.postText = postText //投稿のテキストをセット
+        
+//        // キーボードを閉じる
+//        postTextField.resignFirstResponder()
         
         let dt = Date()
         let dateFormatter = DateFormatter()
@@ -82,7 +129,7 @@ class AddViewController: UIViewController {
         if let postImage = imageButton.backgroundImage(for: .normal){
             let imageURLStr = saveImage(image: postImage) //画像を保存
             post.imageFileName = imageURLStr
-//            post.flameColor =  imageButton.layer.borderColor as! String //フレームの色保存
+            post.flameColor = flameColor  //フレームの色保存
         }
 
         try! realm.write({
@@ -122,18 +169,28 @@ class AddViewController: UIViewController {
        //色ボタンを押したときのアクション
         @IBAction func didTapColorButton1(){
             imageButton.layer.borderColor = colorButton1.backgroundColor?.cgColor
+            imageButton.backgroundColor = colorButton1.backgroundColor
+            flameColor = "ff7f7f"
         }
         @IBAction func didTapColorButton2(){
             imageButton.layer.borderColor = colorButton2.backgroundColor?.cgColor
+            imageButton.backgroundColor = colorButton2.backgroundColor
+            flameColor = "ffff7f"
         }
         @IBAction func didTapColorButton3(){
             imageButton.layer.borderColor = colorButton3.backgroundColor?.cgColor
+            imageButton.backgroundColor = colorButton3.backgroundColor
+            flameColor = "7fffbf"
         }
         @IBAction func didTapColorButton4(){
             imageButton.layer.borderColor = colorButton4.backgroundColor?.cgColor
+            imageButton.backgroundColor = colorButton4.backgroundColor
+            flameColor = "7f7fff"
         }
         @IBAction func didTapColorButton5(){
             imageButton.layer.borderColor = colorButton5.backgroundColor?.cgColor
+            imageButton.backgroundColor = colorButton5.backgroundColor
+            flameColor = "bf7fff"
         }
 
     
