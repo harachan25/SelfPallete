@@ -46,20 +46,31 @@ class TimeLineViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        palleteLabel.layer.cornerRadius = 200
+        palleteLabel.backgroundColor = UIColor.hex("edd3a1", alpha: 1)
+        palleteLabel.layer.cornerRadius = 10
+        palleteLabel.clipsToBounds = true
         yubiLabel.backgroundColor = .white
-        yubiLabel.layer.cornerRadius = 25
+        yubiLabel.layer.cornerRadius = palleteLabel.layer.cornerRadius
+        yubiLabel.clipsToBounds = true
         enoguLabel1.backgroundColor = MyColor.pastelRed
-        enoguLabel1.layer.cornerRadius = 20
+        enoguLabel1.layer.cornerRadius = 15
+        enoguLabel1.clipsToBounds = true
+//        enoguLabel1.shadowColor = UIColor.hex("a58f86", alpha: 1)
+//        enoguLabel1.shadowOffset = CGSizeMake(0, 1)
         enoguLabel2.backgroundColor = MyColor.pastelYellow
-        enoguLabel2.layer.cornerRadius = 30
+        enoguLabel2.layer.cornerRadius = enoguLabel1.layer.cornerRadius
+        enoguLabel2.clipsToBounds = true
         enoguLabel3.backgroundColor = MyColor.pastelGreen
-        enoguLabel3.layer.cornerRadius = 40
+        enoguLabel3.layer.cornerRadius = enoguLabel1.layer.cornerRadius
+        enoguLabel3.clipsToBounds = true
         enoguLabel4.backgroundColor = MyColor.pastelBlue
-        enoguLabel4.layer.cornerRadius = 50
+        enoguLabel4.layer.cornerRadius = enoguLabel1.layer.cornerRadius
+        enoguLabel4.clipsToBounds = true
         enoguLabel5.backgroundColor = MyColor.pastelPurple
-        enoguLabel5.layer.cornerRadius = 60
+        enoguLabel5.layer.cornerRadius = enoguLabel1.layer.cornerRadius
+        enoguLabel5.clipsToBounds = true
     }
+  
     //目標設定
     func getgoalData(){
         navigationItem.title = addv.userDefaults.string(forKey: "str")
@@ -122,22 +133,36 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
            return post.imageFileName == nil ? 90 : 310
        }
     //横スワイプでcell消去
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-            return true
-        }
-        
-        func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-            switch editingStyle {
-            case .delete:
-                array.remove(at: indexPath.row)
-                tableView.beginUpdates()
-                tableView.deleteRows(at: [indexPath], with: .automatic)
-                tableView.endUpdates()
-            case .insert, .none:
-                // NOP
-                break
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            try! realm.write {
+                let item = posts[indexPath.row]
+                realm.delete(item)
             }
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
+    }
+
+//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//            return true
+//        }
+//
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        switch editingStyle {
+//        case .delete:
+//            try! realm.write {
+//                let item = posts[indexPath.row]
+//                realm.delete(item)
+//            }
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        case .insert, .none:
+//            // NOP
+//            break
+//        }
+//    }
+
+
+
 //    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 //        let action = UIContextualAction(style: .destructive,
 //                                        title: "消去") { (action, view, completionHandler) in
