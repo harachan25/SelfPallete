@@ -21,8 +21,7 @@ class TimeLineViewController: UIViewController {
     let realm = try! Realm()
     public var posts = [Post]()
     let addv = AddViewController()
-//    var naviText:String = "目標"
-//    
+   
     var array = [Int](0..<10)
     
     override func viewDidLoad() {
@@ -30,7 +29,6 @@ class TimeLineViewController: UIViewController {
         
         setUpViews()
         getPostData()
-//        getGoalText()
         tableView.dataSource = self
         tableView.tableFooterView = UIView(frame: .zero)
     }
@@ -39,7 +37,6 @@ class TimeLineViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getPostData()
-//        getGoalText()
     }
     
     //Viewの初期設定を行うメソッド
@@ -61,17 +58,7 @@ class TimeLineViewController: UIViewController {
         enoguLabel5.backgroundColor = MyColor.pastelPurple
         enoguLabel5.layer.cornerRadius = 60
     }
-//    //目標設定
-//    func getGoalText(){
-//        func readData() -> String {
-//            // Keyを指定して読み込み
-//            addv.goalText = addv.userDefaults.object(forKey: "DataStore") as! String
-//
-//            return addv.goalText
-//        }
-//        guard case naviText = addv.goalText else { return }
-//        navigationItem.title = naviText
-//    }
+    //目標設定
 
     //Realmからデータを取得してテーブルビューを再リロードするメソッド
     func getPostData(){

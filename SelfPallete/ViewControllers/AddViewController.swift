@@ -21,7 +21,6 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var imageButton: UIButton!
     @IBOutlet var postTextField: UITextField!
     
-//    var goalText:String = "目標"
     var flameColor = ""
     
     let realm = try! Realm()
@@ -32,11 +31,6 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
-//        // textFiel の情報を受け取るための delegate を設定
-//        goalTextField.delegate = self
-//        // デフォルト値
-//        userDefaults.register(defaults: ["DataStore": "目標"])
-//        tim.naviText = readData()
     }
     
     //Viewの初期設定を行うメソッド
@@ -55,40 +49,6 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         imageButton.layer.borderWidth = 10
     }
     
-    
-//    //目標設定
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
-//        goalText = goalTextField.text!
-//
-//        // キーボードを閉じる
-//        goalTextField.resignFirstResponder()
-//
-//        saveData(str: goalText)
-//
-//            return true
-//        }
-//
-//
-//    func saveData(str: String){
-//
-//        // Keyを指定して保存
-//        userDefaults.set(str, forKey: "DataStore")
-//    }
-//
-//    func readData() -> String {
-//        // Keyを指定して読み込み
-//        goalText = userDefaults.object(forKey: "DataStore") as! String
-//
-//        return goalText
-//    }
-//
-//    @IBAction func goalTextSaveButton(_ sender: Any) {
-//        // Key の値を削除
-//        userDefaults.removeObject(forKey: "DataStore")
-//
-//        // Keyを指定して読み込み
-//        goalText = userDefaults.object(forKey: "DataStore") as! String
-//    }
     
     
     
