@@ -37,19 +37,16 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         colorButton1.backgroundColor = MyColor.pastelRed
         colorButton1.layer.cornerRadius = 27
         colorButton2.backgroundColor = MyColor.pastelYellow
-        colorButton2.layer.cornerRadius = 27
+        colorButton2.layer.cornerRadius = colorButton1.layer.cornerRadius
         colorButton3.backgroundColor = MyColor.pastelGreen
-        colorButton3.layer.cornerRadius = 27
+        colorButton3.layer.cornerRadius = colorButton1.layer.cornerRadius
         colorButton4.backgroundColor = MyColor.pastelBlue
-        colorButton4.layer.cornerRadius = 27
+        colorButton4.layer.cornerRadius = colorButton1.layer.cornerRadius
         colorButton5.backgroundColor = MyColor.pastelPurple
-        colorButton5.layer.cornerRadius = 27
+        colorButton5.layer.cornerRadius = colorButton1.layer.cornerRadius
         imageButton.layer.borderColor = UIColor.gray.cgColor
         imageButton.layer.borderWidth = 10
     }
-    
-    
-    
     
     
     //キャンセルボタンを押したときのアクション
@@ -65,10 +62,22 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         self.dismiss(animated: true)
     }
     
-    //
+    //目標設定
     @IBAction func goalTextSaveButtonAction(_ sender: Any) {
         userDefaults.set(goalTextField.text, forKey: "str")
-}
+        // ボタン押すとキーボードを閉じる
+        goalTextField.endEditing(true)
+    }
+    
+    //returnボタンを押したタイミングで起動
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    //textField以外の部分のタッチ時にキーボード閉じる
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
     
     //投稿を保存するメソッド
@@ -77,7 +86,6 @@ class AddViewController: UIViewController, UITextFieldDelegate {
 
         let post = Post() //クラスPOSTのインスタンス生成
         post.postText = postText //投稿のテキストをセット
-        
         
         let dt = Date()
         let dateFormatter = DateFormatter()
@@ -128,27 +136,22 @@ class AddViewController: UIViewController, UITextFieldDelegate {
        //色ボタンを押したときのアクション
         @IBAction func didTapColorButton1(){
             imageButton.layer.borderColor = colorButton1.backgroundColor?.cgColor
-            imageButton.backgroundColor = colorButton1.backgroundColor
             flameColor = "ff7f7f"
         }
         @IBAction func didTapColorButton2(){
             imageButton.layer.borderColor = colorButton2.backgroundColor?.cgColor
-            imageButton.backgroundColor = colorButton2.backgroundColor
             flameColor = "ffff7f"
         }
         @IBAction func didTapColorButton3(){
             imageButton.layer.borderColor = colorButton3.backgroundColor?.cgColor
-            imageButton.backgroundColor = colorButton3.backgroundColor
             flameColor = "7fffbf"
         }
         @IBAction func didTapColorButton4(){
             imageButton.layer.borderColor = colorButton4.backgroundColor?.cgColor
-            imageButton.backgroundColor = colorButton4.backgroundColor
-            flameColor = "7f7fff"
+            flameColor = "87cefa"
         }
         @IBAction func didTapColorButton5(){
             imageButton.layer.borderColor = colorButton5.backgroundColor?.cgColor
-            imageButton.backgroundColor = colorButton5.backgroundColor
             flameColor = "bf7fff"
         }
 
@@ -179,7 +182,7 @@ class MyColor: UIColor {
             return UIColor(hex: "#7fffbf")
     }
     class public var pastelBlue: UIColor {
-            return UIColor(hex: "#7f7fff")
+            return UIColor(hex: "#87cefa")
     }
     class public var pastelPurple: UIColor {
             return UIColor(hex: "#bf7fff")
