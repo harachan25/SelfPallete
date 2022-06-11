@@ -222,7 +222,7 @@
                                     <action selector="didTapColorButton1" destination="A4p-6u-g68" eventType="touchUpInside" id="vRm-mV-IvZ"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="コメント" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iug-DD-dNp">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="コメント" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iug-DD-dNp" customClass="postTextField">
                                 <rect key="frame" x="20" y="536" width="326" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -237,7 +237,7 @@
                                     <action selector="didTapImageButton" destination="A4p-6u-g68" eventType="touchUpInside" id="UM8-Uy-OlI"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="目標を入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rcu-Xc-UJH">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="目標を入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rcu-Xc-UJH" customClass="goalTextField">
                                 <rect key="frame" x="15" y="69" width="310" height="36.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Rcu-Xc-UJH" secondAttribute="height" multiplier="144:17" id="uqZ-Zi-Ik0"/>
@@ -254,7 +254,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="save"/>
                                 <connections>
-                                    <action selector="goalTextSaveButton:" destination="A4p-6u-g68" eventType="touchUpInside" id="oeO-2U-bLl"/>
+                                    <action selector="goalTextSaveButtonAction:" destination="A4p-6u-g68" eventType="touchUpInside" id="D4k-yf-cYe"/>
                                 </connections>
                             </button>
                         </subviews>
