@@ -61,6 +61,13 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         savePost()
         self.dismiss(animated: true)
     }
+//    //ダイアログ表示
+//        override func viewDidAppear(_ animated: Bool) {
+//          super.viewDidAppear(animated)
+//          let dialog = UIAlertController(title: "投稿内容を入力してください", message: "", preferredStyle: .alert)
+//          dialog.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//          self.present(dialog, animated: true, completion: nil)
+//        }
     
     //目標設定
     @IBAction func goalTextSaveButtonAction(_ sender: Any) {
@@ -78,21 +85,6 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-
-//ダイアログ表示
-//    override func viewDidAppear(_ animated: Bool) {
-//      super.viewDidAppear(animated)
-//      // ダイアログ(AlertControllerのインスタンス)を生成します
-//      //   titleには、ダイアログの表題として表示される文字列を指定します
-//      //   messageには、ダイアログの説明として表示される文字列を指定します
-//      let dialog = UIAlertController(title: "投稿内容を入力してください", message: "", preferredStyle: .alert)
-//      // 選択肢(ボタン)を2つ(OKとCancel)追加します
-//      //   titleには、選択肢として表示される文字列を指定します
-//      //   styleには、通常は「.default」、キャンセルなど操作を無効にするものは「.cancel」、削除など注意して選択すべきものは「.destructive」を指定します
-//      dialog.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//      // 生成したダイアログを実際に表示します
-//      self.present(dialog, animated: true, completion: nil)
-//    }
     
     //投稿を保存するメソッド
     func savePost() {

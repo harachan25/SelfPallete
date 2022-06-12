@@ -155,28 +155,13 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
         let dialog = UIAlertController(title: "投稿の消去",
                                        message: "消しますか？",
                                        preferredStyle: .alert)
-//        let post = Post()
-//        let deletePost = realm.objects(Post.self).filter("postTime == %@", post.postTime)
-            //registered cell
-            var cell:[Post] = []
-            //to show in First case
-            var text:[Post] = []
-            //to show in second case
-            var imageFile:[Post] = []
-            //to show in third case
-            var time:[Post] = []
-            //to show in forth case
-            var flame:[Post] = []
+
         dialog.addAction(UIAlertAction(title: "消す", style: .default, handler: { [self] (_) in
-//            try? self.realm.write {
-//                realm.delete(deletePost)
-            //`todos`から要素を削除し、削除した要素を保持しておく
-            let deletedItem = cell.remove(at: indexPath.row)
-            //`allTodo`と`selectedTodo`からの削除はインデックスではなく、`deletedItem`と言う要素で指定する
-            text.removeAll {$0 === deletedItem}
-            imageFile.removeAll {$0 === deletedItem}
-            time.removeAll {$0 === deletedItem}
-            flame.removeAll {$0 === deletedItem}
+            let deletedItem = posts.remove(at: indexPath.row)
+            
+            try? self.realm.write {
+                realm.delete(deletedItem)
+            }
             
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
             self.tableView.reloadData()
