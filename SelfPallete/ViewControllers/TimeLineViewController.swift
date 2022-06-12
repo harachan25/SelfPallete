@@ -22,7 +22,7 @@ class TimeLineViewController: UIViewController {
     public var posts = [Post]()
     let addv = AddViewController()
    
-    var array = [Int](0..<10)
+//    var array = [Int](0..<10)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +39,8 @@ class TimeLineViewController: UIViewController {
         super.viewWillAppear(animated)
         getgoalData()
         getPostData()
+        tableView.dataSource = self
+        tableView.tableFooterView = UIView(frame: .zero)
     }
     
     //Viewの初期設定を行うメソッド
@@ -121,76 +123,68 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-       // URLを取得するメソッド
-       func getImageURL(fileName: String) -> URL {
-           let docDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-           return docDir.appendingPathComponent(fileName)
-       }
-
-       // Cellのサイズを設定するデリゲートメソッド
-       func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-           let post = posts[indexPath.row]
-           return post.imageFileName == nil ? 90 : 310
-       }
-    //横スワイプでcell消去
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            try! realm.write {
-                let item = posts[indexPath.row]
-                realm.delete(item)
-            }
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
+    // URLを取得するメソッド
+    func getImageURL(fileName: String) -> URL {
+        let docDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        return docDir.appendingPathComponent(fileName)
     }
 
-//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-//            return true
-//        }
-//
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        switch editingStyle {
-//        case .delete:
-//            try! realm.write {
-//                let item = posts[indexPath.row]
-//                realm.delete(item)
-//            }
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//        case .insert, .none:
-//            // NOP
-//            break
-//        }
-//    }
+    // Cellのサイズを設定するデリゲートメソッド
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let post = posts[indexPath.row]
+        return post.imageFileName == nil ? 90 : 310
+    }
+//スワイプでcell消去
+    // セルの削除許可
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+                return true
+            }
+    // TableViewのCellの削除を行った際に、Realmに保存したデータを削除する
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .destructive,
+                                        title: "消去") { (action, view, completionHandler) in
+            self.showAlert(deleteIndexPath: indexPath)
+            completionHandler(true)
+        }
+        action.backgroundColor = .orange
+        let configuration = UISwipeActionsConfiguration(actions: [action])
+        return configuration
+    }
 
-
-
-//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//        let action = UIContextualAction(style: .destructive,
-//                                        title: "消去") { (action, view, completionHandler) in
-//            self.showAlert(deleteIndexPath: indexPath)
-//            completionHandler(true)
-//        }
-//        action.backgroundColor = .orange
-//        let configuration = UISwipeActionsConfiguration(actions: [action])
-//        return configuration
-//    }
-//
-//    func showAlert(deleteIndexPath indexPath: IndexPath) {
-//        let dialog = UIAlertController(title: "投稿の消去",
-//                                       message: "消しますか？",
-//                                       preferredStyle: .alert)
-//        dialog.addAction(UIAlertAction(title: "消す", style: .default, handler: { (_) in
-//            self.array.remove(at: indexPath.row)
-//            self.tableView.deleteRows(at: [indexPath], with: .automatic)
-//        }))
-//        dialog.addAction(UIAlertAction(title: "やめる", style: .cancel, handler: nil))
-//        self.present(dialog, animated: true, completion: nil)
-//    }
-//
-//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-//        return true
-//    }
+    func showAlert(deleteIndexPath indexPath: IndexPath) {
+        let dialog = UIAlertController(title: "投稿の消去",
+                                       message: "消しますか？",
+                                       preferredStyle: .alert)
+//        let post = Post()
+//        let deletePost = realm.objects(Post.self).filter("postTime == %@", post.postTime)
+            //registered cell
+            var cell:[Post] = []
+            //to show in First case
+            var text:[Post] = []
+            //to show in second case
+            var imageFile:[Post] = []
+            //to show in third case
+            var time:[Post] = []
+            //to show in forth case
+            var flame:[Post] = []
+        dialog.addAction(UIAlertAction(title: "消す", style: .default, handler: { [self] (_) in
+//            try? self.realm.write {
+//                realm.delete(deletePost)
+            //`todos`から要素を削除し、削除した要素を保持しておく
+            let deletedItem = cell.remove(at: indexPath.row)
+            //`allTodo`と`selectedTodo`からの削除はインデックスではなく、`deletedItem`と言う要素で指定する
+            text.removeAll {$0 === deletedItem}
+            imageFile.removeAll {$0 === deletedItem}
+            time.removeAll {$0 === deletedItem}
+            flame.removeAll {$0 === deletedItem}
+            
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            self.tableView.reloadData()
+        }))
+        dialog.addAction(UIAlertAction(title: "やめる", style: .cancel, handler: nil))
+        self.present(dialog, animated: true, completion: nil)
+    }
 }
-
 
 extension UIColor {
     
