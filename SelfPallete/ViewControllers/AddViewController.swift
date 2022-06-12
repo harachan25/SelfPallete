@@ -56,10 +56,14 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     
     //ポストボタンを押したときのアクション
     @IBAction func didTapPostButton(){
-        guard let _ = postTextField.text else{ return }
-
+        if let _ = postTextField.text{
         savePost()
         self.dismiss(animated: true)
+    } else {
+        let dialog = UIAlertController(title: "投稿内容を入力してください", message: "", preferredStyle: .alert)
+                  dialog.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                  self.present(dialog, animated: true, completion: nil)
+    }
     }
 //    //ダイアログ表示
 //        override func viewDidAppear(_ animated: Bool) {
@@ -90,7 +94,7 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     func savePost() {
         guard let postText = postTextField.text else { return }
 
-        let post = Post() //クラスPOSTのインスタンス生成
+        let post = Post() //クラスPostのインスタンス生成
         post.postText = postText //投稿のテキストをセット
         
         let dt = Date()
@@ -139,6 +143,7 @@ class AddViewController: UIViewController, UITextFieldDelegate {
             imagePickerController.delegate = self
             present(imagePickerController, animated: true)
         }
+    
        //色ボタンを押したときのアクション
         @IBAction func didTapColorButton1(){
             imageButton.layer.borderColor = colorButton1.backgroundColor?.cgColor
@@ -166,15 +171,14 @@ class AddViewController: UIViewController, UITextFieldDelegate {
 
 
 extension AddViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-
+    
     // ライブラリから戻ってきた時に呼ばれるデリゲートメソッド
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return picker.dismiss(animated: true) }
-        imageButton.setBackgroundImage(pickedImage, for: .normal) // imageViewのバックグラウンドに選択した画像をセット
+        imageButton.setBackgroundImage(pickedImage, for: .normal) // imageButtonのバックグラウンドに選択した画像をセット
         picker.dismiss(animated: true)
     }
 }
-
 
 
 class MyColor: UIColor {

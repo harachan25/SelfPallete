@@ -21,8 +21,6 @@ class TimeLineViewController: UIViewController {
     let realm = try! Realm()
     public var posts = [Post]()
     let addv = AddViewController()
-   
-//    var array = [Int](0..<10)
     
     override func viewDidLoad() {
         super.viewDidLoad()
