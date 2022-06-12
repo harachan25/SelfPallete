@@ -29,7 +29,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lTe-qW-nq5">
-                                                    <rect key="frame" x="26" y="21" width="322" height="181"/>
+                                                    <rect key="frame" x="26" y="21" width="323" height="181.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="lTe-qW-nq5" secondAttribute="height" multiplier="16:9" id="CmW-Xs-fYQ"/>
                                                     </constraints>

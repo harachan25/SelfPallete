@@ -56,24 +56,32 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     
     //ポストボタンを押したときのアクション
     @IBAction func didTapPostButton(){
-        guard let _ = postTextField.text else{ return }
 
-        savePost()
-        self.dismiss(animated: true)
+        if  imageButton.backgroundImage(for: .normal) == nil{
+            let dialog = UIAlertController(title: "画像を設定してください", message: "", preferredStyle: .alert)
+                              dialog.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                              self.present(dialog, animated: true, completion: nil)
+        }else if imageButton.layer.borderColor == UIColor.gray.cgColor {
+            let dialog = UIAlertController(title: "色を選択してください", message: "", preferredStyle: .alert)
+                              dialog.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                              self.present(dialog, animated: true, completion: nil)
+        }else{
+            savePost()
+            self.dismiss(animated: true)
+        }
     }
-//    //ダイアログ表示
-//        override func viewDidAppear(_ animated: Bool) {
-//          super.viewDidAppear(animated)
-//          let dialog = UIAlertController(title: "投稿内容を入力してください", message: "", preferredStyle: .alert)
-//          dialog.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//          self.present(dialog, animated: true, completion: nil)
-//        }
     
     //目標設定
     @IBAction func goalTextSaveButtonAction(_ sender: Any) {
         userDefaults.set(goalTextField.text, forKey: "str")
         // ボタン押すとキーボードを閉じる
         goalTextField.endEditing(true)
+        //ダイアログ表示
+        let dialog = UIAlertController(title: "Saved!", message: "", preferredStyle: .alert)
+                          self.present(dialog, animated: true, completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
+            dialog.dismiss(animated: true, completion: nil)
+        }
     }
     
     //returnボタンを押したタイミングで起動
@@ -90,7 +98,7 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     func savePost() {
         guard let postText = postTextField.text else { return }
 
-        let post = Post() //クラスPOSTのインスタンス生成
+        let post = Post() //クラスPostのインスタンス生成
         post.postText = postText //投稿のテキストをセット
         
         let dt = Date()
@@ -139,6 +147,7 @@ class AddViewController: UIViewController, UITextFieldDelegate {
             imagePickerController.delegate = self
             present(imagePickerController, animated: true)
         }
+    
        //色ボタンを押したときのアクション
         @IBAction func didTapColorButton1(){
             imageButton.layer.borderColor = colorButton1.backgroundColor?.cgColor
@@ -160,63 +169,15 @@ class AddViewController: UIViewController, UITextFieldDelegate {
             imageButton.layer.borderColor = colorButton5.backgroundColor?.cgColor
             flameColor = "bf7fff"
         }
-
-    
 }
 
 
 extension AddViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-
+    
     // ライブラリから戻ってきた時に呼ばれるデリゲートメソッド
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return picker.dismiss(animated: true) }
-        imageButton.setBackgroundImage(pickedImage, for: .normal) // imageViewのバックグラウンドに選択した画像をセット
+        imageButton.setBackgroundImage(pickedImage, for: .normal) // imageButtonのバックグラウンドに選択した画像をセット
         picker.dismiss(animated: true)
-    }
-}
-
-
-
-class MyColor: UIColor {
-    class public var pastelRed: UIColor {
-            return UIColor(hex: "#ff7f7f")
-    }
-    class public var pastelYellow: UIColor {
-            return UIColor(hex: "#ffff7f")
-    }
-    class public var pastelGreen: UIColor {
-            return UIColor(hex: "#7fffbf")
-    }
-    class public var pastelBlue: UIColor {
-            return UIColor(hex: "#87cefa")
-    }
-    class public var pastelPurple: UIColor {
-            return UIColor(hex: "#bf7fff")
-    }
-}
-
-
-
-
-extension UIColor {
-    convenience init(hex: String) {
-        // スペースや改行がはいっていたらトリムする
-        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-
-        // 頭に#がついていたら取り除く
-        if cString.hasPrefix("#") {
-            cString.remove(at: cString.startIndex)
-        }
-
-        // RGBに変換する
-        var rgbValue:UInt64 = 0
-        Scanner(string: cString).scanHexInt64(&rgbValue)
-
-        self.init(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
     }
 }

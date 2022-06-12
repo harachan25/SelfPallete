@@ -17,6 +17,8 @@
 		6D0045DC2849BB77002768FC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6D0045DB2849BB77002768FC /* RealmSwift */; };
 		6D0045DE284A8A5F002768FC /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0045DD284A8A5F002768FC /* AddViewController.swift */; };
 		6D0045E3284A8EF1002768FC /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0045E2284A8EF1002768FC /* Post.swift */; };
+		6DA9CF5B2856685100467ECF /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA9CF5A2856685100467ECF /* CustomColor.swift */; };
+		6DA9CF5F28566F4900467ECF /* EnoguUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA9CF5E28566F4800467ECF /* EnoguUILabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		6D0045D22849BAA3002768FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D0045DD284A8A5F002768FC /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		6D0045E2284A8EF1002768FC /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		6DA9CF5A2856685100467ECF /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
+		6DA9CF5E28566F4800467ECF /* EnoguUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnoguUILabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,7 @@
 				6D0045CF2849BAA3002768FC /* LaunchScreen.storyboard */,
 				6D0045D22849BAA3002768FC /* Info.plist */,
 				6D0045E1284A8EC3002768FC /* Models */,
+				6DA9CF59285667D000467ECF /* CustomUI */,
 			);
 			path = SelfPallete;
 			sourceTree = "<group>";
@@ -91,6 +96,15 @@
 				6D0045E2284A8EF1002768FC /* Post.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		6DA9CF59285667D000467ECF /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				6DA9CF5A2856685100467ECF /* CustomColor.swift */,
+				6DA9CF5E28566F4800467ECF /* EnoguUILabel.swift */,
+			);
+			path = CustomUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +186,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D0045C92849BAA2002768FC /* TimeLineViewController.swift in Sources */,
+				6DA9CF5F28566F4900467ECF /* EnoguUILabel.swift in Sources */,
+				6DA9CF5B2856685100467ECF /* CustomColor.swift in Sources */,
 				6D0045E3284A8EF1002768FC /* Post.swift in Sources */,
 				6D0045C52849BAA2002768FC /* AppDelegate.swift in Sources */,
 				6D0045DE284A8A5F002768FC /* AddViewController.swift in Sources */,

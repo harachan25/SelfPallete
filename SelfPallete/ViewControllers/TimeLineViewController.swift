@@ -21,8 +21,6 @@ class TimeLineViewController: UIViewController {
     let realm = try! Realm()
     public var posts = [Post]()
     let addv = AddViewController()
-   
-//    var array = [Int](0..<10)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,32 +43,59 @@ class TimeLineViewController: UIViewController {
     
     //Viewの初期設定を行うメソッド
     func setUpViews() {
+        let clipstoBounds = true
         tableView.delegate = self
         tableView.dataSource = self
         
         palleteLabel.backgroundColor = UIColor.hex("edd3a1", alpha: 1)
         palleteLabel.layer.cornerRadius = 10
-        palleteLabel.clipsToBounds = true
+        palleteLabel.clipsToBounds = clipstoBounds
+        
         yubiLabel.backgroundColor = .white
         yubiLabel.layer.cornerRadius = palleteLabel.layer.cornerRadius
-        yubiLabel.clipsToBounds = true
+        yubiLabel.clipsToBounds = clipstoBounds
+        
         enoguLabel1.backgroundColor = MyColor.pastelRed
-        enoguLabel1.layer.cornerRadius = 15
-        enoguLabel1.clipsToBounds = true
-//        enoguLabel1.shadowColor = UIColor.hex("a58f86", alpha: 1)
-//        enoguLabel1.shadowOffset = CGSizeMake(0, 1)
         enoguLabel2.backgroundColor = MyColor.pastelYellow
-        enoguLabel2.layer.cornerRadius = enoguLabel1.layer.cornerRadius
-        enoguLabel2.clipsToBounds = true
         enoguLabel3.backgroundColor = MyColor.pastelGreen
-        enoguLabel3.layer.cornerRadius = enoguLabel1.layer.cornerRadius
-        enoguLabel3.clipsToBounds = true
         enoguLabel4.backgroundColor = MyColor.pastelBlue
-        enoguLabel4.layer.cornerRadius = enoguLabel1.layer.cornerRadius
-        enoguLabel4.clipsToBounds = true
         enoguLabel5.backgroundColor = MyColor.pastelPurple
-        enoguLabel5.layer.cornerRadius = enoguLabel1.layer.cornerRadius
-        enoguLabel5.clipsToBounds = true
+        
+        let eCornerRadius = 15
+//        let shadowColor = UIColor.hex("a58f86", alpha: 1).cgColor
+//        let shadowOpacity = 1
+//        let shadowOffset = CGSize(width: 4, height: 4)
+//
+        enoguLabel1.layer.cornerRadius = CGFloat(eCornerRadius)
+        enoguLabel1.clipsToBounds = clipstoBounds
+//        enoguLabel1.layer.shadowColor = shadowColor
+//        enoguLabel1.layer.shadowOpacity = Float(shadowOpacity)
+//        enoguLabel1.layer.shadowRadius = CGFloat(eCornerRadius)
+//        enoguLabel1.layer.shadowOffset =  shadowOffset
+//
+        enoguLabel2.layer.cornerRadius = CGFloat(eCornerRadius)
+        enoguLabel2.clipsToBounds = clipstoBounds
+//        enoguLabel2.layer.shadowColor = shadowColor
+//        enoguLabel2.layer.shadowOpacity = Float(shadowOpacity)
+//        enoguLabel2.layer.shadowOffset =  shadowOffset
+//
+        enoguLabel3.layer.cornerRadius = CGFloat(eCornerRadius)
+        enoguLabel3.clipsToBounds = clipstoBounds
+//        enoguLabel3.layer.shadowColor = shadowColor
+//        enoguLabel3.layer.shadowOpacity = Float(shadowOpacity)
+//        enoguLabel3.layer.shadowOffset =  shadowOffset
+//
+        enoguLabel4.layer.cornerRadius = CGFloat(eCornerRadius)
+        enoguLabel4.clipsToBounds = clipstoBounds
+//        enoguLabel4.layer.shadowColor = shadowColor
+//        enoguLabel4.layer.shadowOpacity = Float(shadowOpacity)
+//        enoguLabel4.layer.shadowOffset =  shadowOffset
+//
+        enoguLabel5.layer.cornerRadius = CGFloat(eCornerRadius)
+        enoguLabel5.clipsToBounds = clipstoBounds
+//        enoguLabel5.layer.shadowColor = shadowColor
+//        enoguLabel5.layer.shadowOpacity = Float(shadowOpacity)
+//        enoguLabel5.layer.shadowOffset = shadowOffset
     }
   
     //目標設定
@@ -166,26 +191,7 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
             self.tableView.reloadData()
         }))
-        dialog.addAction(UIAlertAction(title: "やめる", style: .cancel, handler: nil))
+        dialog.addAction(UIAlertAction(title: "消さない", style: .cancel, handler: nil))
         self.present(dialog, animated: true, completion: nil)
-    }
-}
-
-extension UIColor {
-    
-    class func hex (_ hexStr : String, alpha : CGFloat) -> UIColor {
-        var hexStr = hexStr
-        let alpha = alpha
-        hexStr = hexStr.replacingOccurrences(of: "#", with: "")
-        let scanner = Scanner(string: hexStr)
-        var color: UInt64 = 0
-        if scanner.scanHexInt64(&color) {
-            let r = CGFloat((color & 0xFF0000) >> 16) / 255.0
-            let g = CGFloat((color & 0x00FF00) >> 8) / 255.0
-            let b = CGFloat(color & 0x0000FF) / 255.0
-            return UIColor(red:r,green:g,blue:b,alpha:alpha)
-        } else {
-            return UIColor.white
-        }
     }
 }
