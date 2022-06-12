@@ -61,6 +61,13 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         savePost()
         self.dismiss(animated: true)
     }
+//    //ダイアログ表示
+//        override func viewDidAppear(_ animated: Bool) {
+//          super.viewDidAppear(animated)
+//          let dialog = UIAlertController(title: "投稿内容を入力してください", message: "", preferredStyle: .alert)
+//          dialog.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//          self.present(dialog, animated: true, completion: nil)
+//        }
     
     //目標設定
     @IBAction func goalTextSaveButtonAction(_ sender: Any) {
@@ -78,7 +85,6 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
     
     //投稿を保存するメソッド
     func savePost() {
