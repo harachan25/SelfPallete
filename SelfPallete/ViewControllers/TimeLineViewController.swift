@@ -51,7 +51,7 @@ class TimeLineViewController: UIViewController {
         palleteLabel.layer.cornerRadius = 10
         palleteLabel.clipsToBounds = clipstoBounds
         
-        yubiLabel.backgroundColor = .white
+        yubiLabel.backgroundColor = view.backgroundColor
         yubiLabel.layer.cornerRadius = palleteLabel.layer.cornerRadius
         yubiLabel.clipsToBounds = clipstoBounds
         
