@@ -179,5 +179,6 @@ extension AddViewController: UINavigationControllerDelegate, UIImagePickerContro
         guard let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return picker.dismiss(animated: true) }
         imageButton.setBackgroundImage(pickedImage, for: .normal) // imageButtonのバックグラウンドに選択した画像をセット
         picker.dismiss(animated: true)
+        print(imageButton.backgroundImage)
     }
 }
