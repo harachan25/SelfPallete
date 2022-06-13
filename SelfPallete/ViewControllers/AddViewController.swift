@@ -178,6 +178,8 @@ extension AddViewController: UINavigationControllerDelegate, UIImagePickerContro
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return picker.dismiss(animated: true) }
         imageButton.setBackgroundImage(pickedImage, for: .normal) // imageButtonのバックグラウンドに選択した画像をセット
+        imageButton.layoutIfNeeded()
+        imageButton.subviews.first?.contentMode = .scaleAspectFit // 余白消すなら.scaleAspectFill
         picker.dismiss(animated: true)
         print(imageButton.backgroundImage)
     }
