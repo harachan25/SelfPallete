@@ -62,40 +62,16 @@ class TimeLineViewController: UIViewController {
         enoguLabel5.backgroundColor = MyColor.pastelPurple
         
         let eCornerRadius = 15
-//        let shadowColor = UIColor.hex("a58f86", alpha: 1).cgColor
-//        let shadowOpacity = 1
-//        let shadowOffset = CGSize(width: 4, height: 4)
-//
         enoguLabel1.layer.cornerRadius = CGFloat(eCornerRadius)
         enoguLabel1.clipsToBounds = clipstoBounds
-//        enoguLabel1.layer.shadowColor = shadowColor
-//        enoguLabel1.layer.shadowOpacity = Float(shadowOpacity)
-//        enoguLabel1.layer.shadowRadius = CGFloat(eCornerRadius)
-//        enoguLabel1.layer.shadowOffset =  shadowOffset
-//
         enoguLabel2.layer.cornerRadius = CGFloat(eCornerRadius)
         enoguLabel2.clipsToBounds = clipstoBounds
-//        enoguLabel2.layer.shadowColor = shadowColor
-//        enoguLabel2.layer.shadowOpacity = Float(shadowOpacity)
-//        enoguLabel2.layer.shadowOffset =  shadowOffset
-//
         enoguLabel3.layer.cornerRadius = CGFloat(eCornerRadius)
         enoguLabel3.clipsToBounds = clipstoBounds
-//        enoguLabel3.layer.shadowColor = shadowColor
-//        enoguLabel3.layer.shadowOpacity = Float(shadowOpacity)
-//        enoguLabel3.layer.shadowOffset =  shadowOffset
-//
         enoguLabel4.layer.cornerRadius = CGFloat(eCornerRadius)
         enoguLabel4.clipsToBounds = clipstoBounds
-//        enoguLabel4.layer.shadowColor = shadowColor
-//        enoguLabel4.layer.shadowOpacity = Float(shadowOpacity)
-//        enoguLabel4.layer.shadowOffset =  shadowOffset
-//
         enoguLabel5.layer.cornerRadius = CGFloat(eCornerRadius)
         enoguLabel5.clipsToBounds = clipstoBounds
-//        enoguLabel5.layer.shadowColor = shadowColor
-//        enoguLabel5.layer.shadowOpacity = Float(shadowOpacity)
-//        enoguLabel5.layer.shadowOffset = shadowOffset
     }
   
     //目標設定
@@ -109,7 +85,6 @@ class TimeLineViewController: UIViewController {
         print(posts)
             tableView.reloadData() //テーブルビューをリロード
     }
-    
 }
 
 extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
@@ -194,4 +169,5 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
         dialog.addAction(UIAlertAction(title: "消さない", style: .cancel, handler: nil))
         self.present(dialog, animated: true, completion: nil)
     }
+    
 }

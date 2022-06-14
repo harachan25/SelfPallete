@@ -83,12 +83,6 @@ class AddViewController: UIViewController, UITextFieldDelegate {
             dialog.dismiss(animated: true, completion: nil)
         }
     }
-    
-    //returnボタンを押したタイミングで起動
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
     //textField以外の部分のタッチ時にキーボード閉じる
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -173,7 +167,6 @@ class AddViewController: UIViewController, UITextFieldDelegate {
 
 
 extension AddViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    
     // ライブラリから戻ってきた時に呼ばれるデリゲートメソッド
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return picker.dismiss(animated: true) }
