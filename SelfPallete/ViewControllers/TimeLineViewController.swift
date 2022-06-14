@@ -85,7 +85,6 @@ class TimeLineViewController: UIViewController {
         print(posts)
             tableView.reloadData() //テーブルビューをリロード
     }
-    
 }
 
 extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
@@ -170,4 +169,5 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
         dialog.addAction(UIAlertAction(title: "消さない", style: .cancel, handler: nil))
         self.present(dialog, animated: true, completion: nil)
     }
+    
 }
