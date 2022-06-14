@@ -1,0 +1,162 @@
+2022-06-14 10:49:20 +0000  Initial pipeline context: <IDEDistributionProcessingPipelineContext: 0x2bf249560; archive(resolved)="<IDEArchive: 0x2b324b760>", distributionTask(resolved)="2", distributionDestination(resolved)="2", distributionMethod(resolved)="<IDEDistributionMethodiOSAppStoreDistribution: 0x2e15c70e0>", team(resolved)="<IDEProvisioningDisambiguatableBasicTeam: 0x2e22235c0; teamID='2K446D59RQ', teamName='Komori Yuta', teamType='(null)', username='(null)', isFreeProvisioningTeam='0'>">
+	Chain (16, self inclusive):
+	<IDEDistributionProcessingPipelineContext: 0x2bf249560; archive = "<IDEArchive: 0x2b324b760>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x2e15c70e0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x2e22235c0; teamID='2K446D59RQ', teamName='Komori Yuta', teamType='(null)', username='(null)', isFreeProvisioningTeam='0'>">
+	<IDEDistributionProcessingPipelineContext: 0x2c9d9e1e0; archive = "<IDEArchive: 0x2b324b760>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x2e15c70e0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x2e22235c0; teamID='2K446D59RQ', teamName='Komori Yuta', teamType='(null)', username='(null)', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x2c9d3a6c0; archive = "<IDEArchive: 0x2b324b760>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x2e15c70e0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x2e22235c0; teamID='2K446D59RQ', teamName='Komori Yuta', teamType='(null)', username='(null)', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x2bd0cff20; archive = "<IDEArchive: 0x2b324b760>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x2e15c70e0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x2e22235c0; teamID='2K446D59RQ', teamName='Komori Yuta', teamType='(null)', username='(null)', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x2bd0b1f20; archive = "<IDEArchive: 0x2b324b760>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x2e15c70e0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x2e22235c0; teamID='2K446D59RQ', teamName='Komori Yuta', teamType='(null)', username='(null)', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x2d2c7d4b0; archive = "<IDEArchive: 0x2b324b760>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x2e15c70e0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x2e22235c0; teamID='2K446D59RQ', teamName='Komori Yuta', teamType='(null)', username='(null)', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x2d2c4d510; archive = "<IDEArchive: 0x2b324b760>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x2e15c70e0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x2e22235c0; teamID='2K446D59RQ', teamName='Komori Yuta', teamType='(null)', username='(null)', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x2bd050230; archive = "<IDEArchive: 0x2b324b760>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x2e15c70e0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x2e22235c0; teamID='2K446D59RQ', teamName='Komori Yuta', teamType='(null)', username='(null)', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x2bd0b4500; archive = "<IDEArchive: 0x2b324b760>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x2e15c70e0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x2e22235c0; teamID='2K446D59RQ', teamName='Komori Yuta', teamType='(null)', username='(null)', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x2d2c17a70; archive = "<IDEArchive: 0x2b324b760>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x2e15c70e0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x2e22235c0; teamID='2K446D59RQ', teamName='Komori Yuta', teamType='(null)', username='(null)', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x2ce11a6f0; archive = "<IDEArchive: 0x2b324b760>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x2e15c70e0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x2e22235c0; teamID='2K446D59RQ', teamName='Komori Yuta', teamType='(null)', username='(null)', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x2d2c74c20; archive = "<IDEArchive: 0x2b324b760>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x2e15c70e0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x2e22235c0; teamID='2K446D59RQ', teamName='Komori Yuta', teamType='(null)', username='(null)', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x2d2cf7690; archive = "<IDEArchive: 0x2b324b760>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x2e15c70e0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x2e22235c0; teamID='2K446D59RQ', teamName='Komori Yuta', teamType='(null)', username='(null)', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x2ca9dc210; archive = "<IDEArchive: 0x2b324b760>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x2e15c70e0>", team="(null)">
+	<IDEDistributionContext: 0x2fb06de70; archive = "<IDEArchive: 0x2b324b760>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x2e15c70e0>", team="(null)">
+	<IDEDistributionContext: 0x2ce00c810; archive = "<IDEArchive: 0x2b324b760>", distributionMethod="(null)", team="(null)">
+</IDEDistributionProcessingPipelineContext: 0x2bf249560>
+2022-06-14 10:49:20 +0000  Processing step: IDEDistributionCreateDestRootStep
+2022-06-14 10:49:20 +0000  Processing step: IDEDistributionCopyItemStep
+2022-06-14 10:49:20 +0000  Running /usr/bin/ditto '-V' '/Users/ami52/Library/Developer/Xcode/Archives/2022-06-14/SelfPallete 2022-06-14 19.48.xcarchive/Products/Applications/SelfPallete.app' '/var/folders/_f/zdw5mf1x0lscq45njppt5fy40000gn/T/XcodeDistPipeline.~~~UR5VZg/Root/Payload/SelfPallete.app'
+2022-06-14 10:49:20 +0000  >>> Copying /Users/ami52/Library/Developer/Xcode/Archives/2022-06-14/SelfPallete 2022-06-14 19.48.xcarchive/Products/Applications/SelfPallete.app 
+2022-06-14 10:49:20 +0000  copying file ./_CodeSignature/CodeResources ... 
+2022-06-14 10:49:20 +0000  4727 bytes for ./_CodeSignature/CodeResources
+2022-06-14 10:49:20 +0000  copying file ./icon.png ... 
+2022-06-14 10:49:20 +0000  31245 bytes for ./icon.png
+2022-06-14 10:49:20 +0000  copying file ./Base.lproj/Main.storyboardc/UINavigationController-Q7G-y8-996.nib ... 
+2022-06-14 10:49:20 +0000  2516 bytes for ./Base.lproj/Main.storyboardc/UINavigationController-Q7G-y8-996.nib
+copying file ./Base.lproj/Main.storyboardc/A4p-6u-g68-view-4pV-eZ-1JQ.nib ... 
+2022-06-14 10:49:20 +0000  12213 bytes for ./Base.lproj/Main.storyboardc/A4p-6u-g68-view-4pV-eZ-1JQ.nib
+2022-06-14 10:49:20 +0000  copying file ./Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib ... 
+2022-06-14 10:49:20 +0000  12433 bytes for ./Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib
+copying file ./Base.lproj/Main.storyboardc/UINavigationController-9lV-VT-De5.nib ... 
+2022-06-14 10:49:20 +0000  2546 bytes for ./Base.lproj/Main.storyboardc/UINavigationController-9lV-VT-De5.nib
+2022-06-14 10:49:20 +0000  copying file ./Base.lproj/Main.storyboardc/Info.plist ... 
+2022-06-14 10:49:20 +0000  363 bytes for ./Base.lproj/Main.storyboardc/Info.plist
+2022-06-14 10:49:20 +0000  copying file ./Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib ... 
+2022-06-14 10:49:20 +0000  1197 bytes for ./Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib
+2022-06-14 10:49:20 +0000  copying file ./Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib ... 
+2022-06-14 10:49:20 +0000  896 bytes for ./Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib
+2022-06-14 10:49:20 +0000  copying file ./Base.lproj/LaunchScreen.storyboardc/Info.plist ... 
+2022-06-14 10:49:20 +0000  258 bytes for ./Base.lproj/LaunchScreen.storyboardc/Info.plist
+2022-06-14 10:49:20 +0000  copying file ./SelfPallete ... 
+2022-06-14 10:49:20 +0000  66119088 bytes for ./SelfPallete
+2022-06-14 10:49:20 +0000  copying file ./embedded.mobileprovision ... 
+2022-06-14 10:49:20 +0000  12004 bytes for ./embedded.mobileprovision
+2022-06-14 10:49:20 +0000  copying file ./Info.plist ... 
+2022-06-14 10:49:20 +0000  1524 bytes for ./Info.plist
+2022-06-14 10:49:20 +0000  copying file ./PkgInfo ... 
+2022-06-14 10:49:20 +0000  8 bytes for ./PkgInfo
+2022-06-14 10:49:20 +0000  /usr/bin/ditto exited with 0
+2022-06-14 10:49:20 +0000  Processing step: IDEDistributionEmbedProfileStep
+2022-06-14 10:49:20 +0000  Processing step: IDEDistributionInfoPlistStep
+2022-06-14 10:49:20 +0000  Processing step: IDEDistributionItemRemovalStep
+2022-06-14 10:49:20 +0000  Processing step: IDEDistributionAppThinningPlistStep
+2022-06-14 10:49:20 +0000  Skipping step: IDEDistributionAppThinningPlistStep because it said so
+2022-06-14 10:49:20 +0000  Processing step: IDEDistributionCompileBitcodeStep
+2022-06-14 10:49:20 +0000  Skipping step: IDEDistributionCompileBitcodeStep because it said so
+2022-06-14 10:49:20 +0000  Processing step: IDEDistributionCodeSlimmingStep
+2022-06-14 10:49:20 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip '/var/folders/_f/zdw5mf1x0lscq45njppt5fy40000gn/T/XcodeDistPipeline.~~~UR5VZg/Root/Payload/SelfPallete.app/SelfPallete' '-l' '-keep_cs' '-o' '/var/folders/_f/zdw5mf1x0lscq45njppt5fy40000gn/T/XcodeDistPipeline.~~~UR5VZg/Root/Payload/SelfPallete.app/SelfPallete'
+2022-06-14 10:49:21 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip exited with 0
+2022-06-14 10:49:21 +0000  Processing step: IDEDistributionCopyBCSymbolMapsStep
+2022-06-14 10:49:21 +0000  Running /usr/bin/ditto '-V' '/Users/ami52/Library/Developer/Xcode/Archives/2022-06-14/SelfPallete 2022-06-14 19.48.xcarchive/BCSymbolMaps/96DF7E1D-801F-3E18-BA2A-D1D61F079E75.bcsymbolmap' '/var/folders/_f/zdw5mf1x0lscq45njppt5fy40000gn/T/XcodeDistPipeline.~~~UR5VZg/Root/BCSymbolMaps/96DF7E1D-801F-3E18-BA2A-D1D61F079E75.bcsymbolmap'
+2022-06-14 10:49:21 +0000  >>> Copying /Users/ami52/Library/Developer/Xcode/Archives/2022-06-14/SelfPallete 2022-06-14 19.48.xcarchive/BCSymbolMaps/96DF7E1D-801F-3E18-BA2A-D1D61F079E75.bcsymbolmap 
+2022-06-14 10:49:21 +0000  copying file ./96DF7E1D-801F-3E18-BA2A-D1D61F079E75.bcsymbolmap ... 
+2022-06-14 10:49:21 +0000  5184767 bytes for ./96DF7E1D-801F-3E18-BA2A-D1D61F079E75.bcsymbolmap
+2022-06-14 10:49:21 +0000  /usr/bin/ditto exited with 0
+2022-06-14 10:49:21 +0000  Processing step: IDEDistributionSymbolsStep
+2022-06-14 10:49:21 +0000  Excluding symbols for SelfPallete.app
+2022-06-14 10:49:21 +0000  Processing step: IDEDistributionCopyAppleProvidedContentStep
+2022-06-14 10:49:21 +0000  Processing step: IDEDistributionAppThinningStep
+2022-06-14 10:49:21 +0000  Skipping step: IDEDistributionAppThinningStep because it said so
+2022-06-14 10:49:21 +0000  Processing step: IDEDistributionArchThinningStep
+2022-06-14 10:49:21 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/_f/zdw5mf1x0lscq45njppt5fy40000gn/T/XcodeDistPipeline.~~~UR5VZg/Root/Payload/SelfPallete.app/SelfPallete' '-verify_arch' 'arm64e'
+2022-06-14 10:49:21 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2022-06-14 10:49:21 +0000  Skipping architecture thinning for item "SelfPallete" because arch "arm64e" wasn't found
+2022-06-14 10:49:21 +0000  Processing step: IDEDistributionODRStep
+2022-06-14 10:49:21 +0000  Processing step: IDEDistributionStripXattrsStep
+2022-06-14 10:49:21 +0000  Running /usr/bin/xattr '-crs' '/var/folders/_f/zdw5mf1x0lscq45njppt5fy40000gn/T/XcodeDistPipeline.~~~UR5VZg/Root/Payload/SelfPallete.app'
+2022-06-14 10:49:21 +0000  /usr/bin/xattr exited with 0
+2022-06-14 10:49:21 +0000  Processing step: IDEDistributionCodesignStep
+2022-06-14 10:49:21 +0000  Entitlements for <IDEDistributionItem: 0x2d52e3200; bundleID='jp.com.lifeistech.selfpallete', path='<DVTFilePath:0x2d62416f0:'/Users/ami52/Library/Developer/Xcode/Archives/2022-06-14/SelfPallete 2022-06-14 19.48.xcarchive/Products/Applications/SelfPallete.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x2faf4c300; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x2e3bad400; name='iPhone Distribution: Komori Yuta (2K446D59RQ)', hash='9670C0654BB669CC56623389BC1B3C24F9999E52', serialNumber='1CB7C271E3E30F6F36F764BA165DD997', certificateKinds='(
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2022-06-03 13:59:23 +0000''>', entitlements='{
+    "application-identifier" = "2K446D59RQ.jp.com.lifeistech.selfpallete";
+    "beta-reports-active" = 1;
+    "com.apple.developer.team-identifier" = 2K446D59RQ;
+    "get-task-allow" = 0;
+}', teamID='2K446D59RQ', identifier='jp.com.lifeistech.selfpallete', executablePath='<DVTFilePath:0x2b5d5f760:'/Users/ami52/Library/Developer/Xcode/Archives/2022-06-14/SelfPallete 2022-06-14 19.48.xcarchive/Products/Applications/SelfPallete.app/SelfPallete'>', hardenedRuntime='0'>'>: {
+    "application-identifier" = "2K446D59RQ.jp.com.lifeistech.selfpallete";
+    "beta-reports-active" = 1;
+    "com.apple.developer.team-identifier" = 2K446D59RQ;
+    "get-task-allow" = 0;
+}
+2022-06-14 10:49:21 +0000  Entitlements for <IDEDistributionItem: 0x2d52e3200; bundleID='jp.com.lifeistech.selfpallete', path='<DVTFilePath:0x2d62416f0:'/Users/ami52/Library/Developer/Xcode/Archives/2022-06-14/SelfPallete 2022-06-14 19.48.xcarchive/Products/Applications/SelfPallete.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x2faf4c300; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x2cacc99a0; name='iPhone Distribution: Komori Yuta (2K446D59RQ)', hash='9670C0654BB669CC56623389BC1B3C24F9999E52', serialNumber='1CB7C271E3E30F6F36F764BA165DD997', certificateKinds='(
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2022-06-03 13:59:23 +0000''>', entitlements='{
+    "application-identifier" = "2K446D59RQ.jp.com.lifeistech.selfpallete";
+    "beta-reports-active" = 1;
+    "com.apple.developer.team-identifier" = 2K446D59RQ;
+    "get-task-allow" = 0;
+}', teamID='2K446D59RQ', identifier='jp.com.lifeistech.selfpallete', executablePath='<DVTFilePath:0x2b5d5f760:'/Users/ami52/Library/Developer/Xcode/Archives/2022-06-14/SelfPallete 2022-06-14 19.48.xcarchive/Products/Applications/SelfPallete.app/SelfPallete'>', hardenedRuntime='0'>'> are: {
+    "application-identifier" = "2K446D59RQ.jp.com.lifeistech.selfpallete";
+    "beta-reports-active" = 1;
+    "com.apple.developer.team-identifier" = 2K446D59RQ;
+    "get-task-allow" = 0;
+}
+2022-06-14 10:49:21 +0000  Writing entitlements for <IDEDistributionItem: 0x2d52e3200; bundleID='jp.com.lifeistech.selfpallete', path='<DVTFilePath:0x2d62416f0:'/Users/ami52/Library/Developer/Xcode/Archives/2022-06-14/SelfPallete 2022-06-14 19.48.xcarchive/Products/Applications/SelfPallete.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x2faf4c300; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x2e1775250; name='iPhone Distribution: Komori Yuta (2K446D59RQ)', hash='9670C0654BB669CC56623389BC1B3C24F9999E52', serialNumber='1CB7C271E3E30F6F36F764BA165DD997', certificateKinds='(
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2022-06-03 13:59:23 +0000''>', entitlements='{
+    "application-identifier" = "2K446D59RQ.jp.com.lifeistech.selfpallete";
+    "beta-reports-active" = 1;
+    "com.apple.developer.team-identifier" = 2K446D59RQ;
+    "get-task-allow" = 0;
+}', teamID='2K446D59RQ', identifier='jp.com.lifeistech.selfpallete', executablePath='<DVTFilePath:0x2b5d5f760:'/Users/ami52/Library/Developer/Xcode/Archives/2022-06-14/SelfPallete 2022-06-14 19.48.xcarchive/Products/Applications/SelfPallete.app/SelfPallete'>', hardenedRuntime='0'>'> to: /var/folders/_f/zdw5mf1x0lscq45njppt5fy40000gn/T/XcodeDistPipeline.~~~UR5VZg/entitlements~~~RsX8wd
+2022-06-14 10:49:21 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' '9670C0654BB669CC56623389BC1B3C24F9999E52' '--entitlements' '/var/folders/_f/zdw5mf1x0lscq45njppt5fy40000gn/T/XcodeDistPipeline.~~~UR5VZg/entitlements~~~RsX8wd' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/_f/zdw5mf1x0lscq45njppt5fy40000gn/T/XcodeDistPipeline.~~~UR5VZg/Root/Payload/SelfPallete.app'
+2022-06-14 10:49:21 +0000  /var/folders/_f/zdw5mf1x0lscq45njppt5fy40000gn/T/XcodeDistPipeline.~~~UR5VZg/Root/Payload/SelfPallete.app: replacing existing signature
+2022-06-14 10:49:21 +0000  /var/folders/_f/zdw5mf1x0lscq45njppt5fy40000gn/T/XcodeDistPipeline.~~~UR5VZg/Root/Payload/SelfPallete.app: signed app bundle with Mach-O thin (arm64) [jp.com.lifeistech.selfpallete]
+2022-06-14 10:49:21 +0000  /usr/bin/codesign exited with 0
+2022-06-14 10:49:21 +0000  Processing step: IDEDistributionZipODRItemStep
+2022-06-14 10:49:21 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2022-06-14 10:49:21 +0000  Processing step: IDEDistributionCreateIPAStep
+2022-06-14 10:49:21 +0000  Running /usr/bin/ditto '-V' '-c' '-k' '--norsrc' '/var/folders/_f/zdw5mf1x0lscq45njppt5fy40000gn/T/XcodeDistPipeline.~~~UR5VZg/Root' '/var/folders/_f/zdw5mf1x0lscq45njppt5fy40000gn/T/XcodeDistPipeline.~~~UR5VZg/Packages/SelfPallete.ipa'
+2022-06-14 10:49:21 +0000  >>> Copying /var/folders/_f/zdw5mf1x0lscq45njppt5fy40000gn/T/XcodeDistPipeline.~~~UR5VZg/Root 
+2022-06-14 10:49:21 +0000  copying file ./BCSymbolMaps/96DF7E1D-801F-3E18-BA2A-D1D61F079E75.bcsymbolmap ... 
+2022-06-14 10:49:21 +0000  5184767 bytes for ./BCSymbolMaps/96DF7E1D-801F-3E18-BA2A-D1D61F079E75.bcsymbolmap
+2022-06-14 10:49:21 +0000  copying file ./Payload/SelfPallete.app/_CodeSignature/CodeResources ... 
+2022-06-14 10:49:21 +0000  4727 bytes for ./Payload/SelfPallete.app/_CodeSignature/CodeResources
+2022-06-14 10:49:21 +0000  copying file ./Payload/SelfPallete.app/icon.png ... 
+2022-06-14 10:49:21 +0000  31245 bytes for ./Payload/SelfPallete.app/icon.png
+2022-06-14 10:49:21 +0000  copying file ./Payload/SelfPallete.app/Base.lproj/Main.storyboardc/UINavigationController-Q7G-y8-996.nib ... 
+2022-06-14 10:49:21 +0000  2516 bytes for ./Payload/SelfPallete.app/Base.lproj/Main.storyboardc/UINavigationController-Q7G-y8-996.nib
+copying file ./Payload/SelfPallete.app/Base.lproj/Main.storyboardc/A4p-6u-g68-view-4pV-eZ-1JQ.nib ... 
+2022-06-14 10:49:21 +0000  12213 bytes for ./Payload/SelfPallete.app/Base.lproj/Main.storyboardc/A4p-6u-g68-view-4pV-eZ-1JQ.nib
+copying file ./Payload/SelfPallete.app/Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib ... 
+2022-06-14 10:49:21 +0000  12433 bytes for ./Payload/SelfPallete.app/Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib
+copying file ./Payload/SelfPallete.app/Base.lproj/Main.storyboardc/UINavigationController-9lV-VT-De5.nib ... 
+2022-06-14 10:49:21 +0000  2546 bytes for ./Payload/SelfPallete.app/Base.lproj/Main.storyboardc/UINavigationController-9lV-VT-De5.nib
+2022-06-14 10:49:21 +0000  copying file ./Payload/SelfPallete.app/Base.lproj/Main.storyboardc/Info.plist ... 
+2022-06-14 10:49:21 +0000  363 bytes for ./Payload/SelfPallete.app/Base.lproj/Main.storyboardc/Info.plist
+2022-06-14 10:49:21 +0000  copying file ./Payload/SelfPallete.app/Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib ... 
+2022-06-14 10:49:21 +0000  1197 bytes for ./Payload/SelfPallete.app/Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib
+2022-06-14 10:49:21 +0000  copying file ./Payload/SelfPallete.app/Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib ... 
+2022-06-14 10:49:21 +0000  896 bytes for ./Payload/SelfPallete.app/Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib
+2022-06-14 10:49:21 +0000  copying file ./Payload/SelfPallete.app/Base.lproj/LaunchScreen.storyboardc/Info.plist ... 
+2022-06-14 10:49:21 +0000  258 bytes for ./Payload/SelfPallete.app/Base.lproj/LaunchScreen.storyboardc/Info.plist
+2022-06-14 10:49:21 +0000  copying file ./Payload/SelfPallete.app/SelfPallete ... 
+2022-06-14 10:49:22 +0000  59173936 bytes for ./Payload/SelfPallete.app/SelfPallete
+copying file ./Payload/SelfPallete.app/embedded.mobileprovision ... 
+2022-06-14 10:49:22 +0000  12004 bytes for ./Payload/SelfPallete.app/embedded.mobileprovision
+copying file ./Payload/SelfPallete.app/Info.plist ... 
+2022-06-14 10:49:22 +0000  1524 bytes for ./Payload/SelfPallete.app/Info.plist
+copying file ./Payload/SelfPallete.app/PkgInfo ... 
+2022-06-14 10:49:22 +0000  8 bytes for ./Payload/SelfPallete.app/PkgInfo
+2022-06-14 10:49:22 +0000  /usr/bin/ditto exited with 0
+2022-06-14 10:49:22 +0000  Processing step: IDEDistributionAppStoreInformationStep
+2022-06-14 10:49:22 +0000  Skipping step: IDEDistributionAppStoreInformationStep because it said so
+2022-06-14 10:49:22 +0000  Processing step: IDEDistributionGenerateProcessedDistributionItems
+2022-06-14 10:49:22 +0000  IDEDistributionItem init <DVTFilePath:0x2cafb1030:'/var/folders/_f/zdw5mf1x0lscq45njppt5fy40000gn/T/XcodeDistPipeline.~~~UR5VZg/Root/Payload/SelfPallete.app'>
+2022-06-14 10:49:22 +0000  Processing step: IDEDistributionCreateManifestStep
+2022-06-14 10:49:22 +0000  Skipping step: IDEDistributionCreateManifestStep because it said so

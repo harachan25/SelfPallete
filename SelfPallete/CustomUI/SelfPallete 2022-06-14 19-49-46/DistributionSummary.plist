@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SelfPallete.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>bitcode</key>
+			<true/>
+			<key>buildNumber</key>
+			<string>1</string>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>9670C0654BB669CC56623389BC1B3C24F9999E52</string>
+				<key>dateExpires</key>
+				<string>2023/06/03</string>
+				<key>type</key>
+				<string>iOS Distribution</string>
+			</dict>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>2K446D59RQ.jp.com.lifeistech.selfpallete</string>
+				<key>beta-reports-active</key>
+				<true/>
+				<key>com.apple.developer.team-identifier</key>
+				<string>2K446D59RQ</string>
+				<key>get-task-allow</key>
+				<false/>
+			</dict>
+			<key>name</key>
+			<string>SelfPallete.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>1754cd14-e019-4718-ac1d-76a141cfd182</string>
+				<key>dateExpires</key>
+				<string>2023/06/03</string>
+				<key>name</key>
+				<string>L14-AmikaHara-Distribution</string>
+			</dict>
+			<key>symbols</key>
+			<true/>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>2K446D59RQ</string>
+				<key>name</key>
+				<string>Komori Yuta</string>
+			</dict>
+			<key>versionNumber</key>
+			<string>1.0</string>
+		</dict>
+	</array>
+</dict>
+</plist>
