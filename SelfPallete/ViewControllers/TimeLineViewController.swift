@@ -9,13 +9,7 @@ import UIKit
 import RealmSwift
 
 class TimeLineViewController: UIViewController {
-    @IBOutlet var palleteLabel: UILabel!
-    @IBOutlet var yubiLabel: UILabel!
-    @IBOutlet var enoguLabel1: UILabel!
-    @IBOutlet var enoguLabel2: UILabel!
-    @IBOutlet var enoguLabel3: UILabel!
-    @IBOutlet var enoguLabel4: UILabel!
-    @IBOutlet var enoguLabel5: UILabel!
+    @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var tableView: UITableView!
     
     let realm = try! Realm()
@@ -28,6 +22,7 @@ class TimeLineViewController: UIViewController {
         setUpViews()
         getgoalData()
         getPostData()
+        collectionView.dataSource = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView(frame: .zero)
     }
@@ -37,65 +32,15 @@ class TimeLineViewController: UIViewController {
         super.viewWillAppear(animated)
         getgoalData()
         getPostData()
+        collectionView.dataSource = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView(frame: .zero)
     }
     
     //Viewの初期設定を行うメソッド
     func setUpViews() {
-        let clipstoBounds = true
         tableView.delegate = self
         tableView.dataSource = self
-        
-        palleteLabel.backgroundColor = UIColor.hex("edd3a1", alpha: 1)
-        palleteLabel.layer.cornerRadius = 10
-        palleteLabel.clipsToBounds = clipstoBounds
-        
-        yubiLabel.backgroundColor = .white
-        yubiLabel.layer.cornerRadius = palleteLabel.layer.cornerRadius
-        yubiLabel.clipsToBounds = clipstoBounds
-        
-        enoguLabel1.backgroundColor = MyColor.pastelRed
-        enoguLabel2.backgroundColor = MyColor.pastelYellow
-        enoguLabel3.backgroundColor = MyColor.pastelGreen
-        enoguLabel4.backgroundColor = MyColor.pastelBlue
-        enoguLabel5.backgroundColor = MyColor.pastelPurple
-        
-        let eCornerRadius = 15
-//        let shadowColor = UIColor.hex("a58f86", alpha: 1).cgColor
-//        let shadowOpacity = 1
-//        let shadowOffset = CGSize(width: 4, height: 4)
-//
-        enoguLabel1.layer.cornerRadius = CGFloat(eCornerRadius)
-        enoguLabel1.clipsToBounds = clipstoBounds
-//        enoguLabel1.layer.shadowColor = shadowColor
-//        enoguLabel1.layer.shadowOpacity = Float(shadowOpacity)
-//        enoguLabel1.layer.shadowRadius = CGFloat(eCornerRadius)
-//        enoguLabel1.layer.shadowOffset =  shadowOffset
-//
-        enoguLabel2.layer.cornerRadius = CGFloat(eCornerRadius)
-        enoguLabel2.clipsToBounds = clipstoBounds
-//        enoguLabel2.layer.shadowColor = shadowColor
-//        enoguLabel2.layer.shadowOpacity = Float(shadowOpacity)
-//        enoguLabel2.layer.shadowOffset =  shadowOffset
-//
-        enoguLabel3.layer.cornerRadius = CGFloat(eCornerRadius)
-        enoguLabel3.clipsToBounds = clipstoBounds
-//        enoguLabel3.layer.shadowColor = shadowColor
-//        enoguLabel3.layer.shadowOpacity = Float(shadowOpacity)
-//        enoguLabel3.layer.shadowOffset =  shadowOffset
-//
-        enoguLabel4.layer.cornerRadius = CGFloat(eCornerRadius)
-        enoguLabel4.clipsToBounds = clipstoBounds
-//        enoguLabel4.layer.shadowColor = shadowColor
-//        enoguLabel4.layer.shadowOpacity = Float(shadowOpacity)
-//        enoguLabel4.layer.shadowOffset =  shadowOffset
-//
-        enoguLabel5.layer.cornerRadius = CGFloat(eCornerRadius)
-        enoguLabel5.clipsToBounds = clipstoBounds
-//        enoguLabel5.layer.shadowColor = shadowColor
-//        enoguLabel5.layer.shadowOpacity = Float(shadowOpacity)
-//        enoguLabel5.layer.shadowOffset = shadowOffset
     }
   
     //目標設定
@@ -112,12 +57,29 @@ class TimeLineViewController: UIViewController {
     
 }
 
-extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
+extension TimeLineViewController: UICollectionViewDelegate,UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
+//    //CollectionViewのセクション数
+//    func numberOfSections(in collectionView: UICollectionView) -> Int {
+//           return 1
+//       }
+    // CollectionViewが何個のCellを表示するのか設定するデリゲートメソッド
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    // ColorCellの中身を設定するメソッド
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCell", for: indexPath)
+        cell.backgroundColor =  .blue
+        return cell
+    }
+    
+
     // TableViewが何個のCellを表示するのか設定するデリゲートメソッド
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return posts.count
         }
-    // Cellの中身を設定するデリゲートメソッド
+    // PostCellの中身を設定するデリゲートメソッド
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
         guard let postImageView = cell.viewWithTag(1) as? UIImageView,
